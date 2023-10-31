@@ -1,0 +1,15 @@
+.container {
+  background-color: #ffffff;
+  border-bottom-right-radius: 15px;
+  border-right: solid 1px var(--cards-border-color);
+  border-top-right-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 1rem;
+  width: 17rem;
+}
+
+.configs__container {
+  padding: 1rem 0;
+}

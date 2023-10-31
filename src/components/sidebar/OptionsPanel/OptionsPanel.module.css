@@ -1,0 +1,5 @@
+.optionPanel__container {
+  border-bottom: 1px solid var(--separation-border-color);
+  flex: 10;
+  padding: 3rem 0;
+}
