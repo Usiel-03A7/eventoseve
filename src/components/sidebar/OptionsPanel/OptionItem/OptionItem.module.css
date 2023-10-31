@@ -1,0 +1,20 @@
+.optionPanel__item {
+  border-radius: 10px;
+  display: flex;
+  flex-flow: nowrap;
+  margin-bottom: 15px;
+  padding: 1rem;
+}
+
+.optionPanel__item i {
+  margin-right: 1.5rem;
+}
+
+.optionPanel__itemActive {
+  background-color: var(--selected-item-main-color);
+}
+
+.optionPanel__item:hover {
+  background-color: var(--selected-item-main-color);
+  cursor: pointer;
+}
