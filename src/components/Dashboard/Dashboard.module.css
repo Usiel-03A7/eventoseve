@@ -1,0 +1,9 @@
+.dashboard__container {
+  display: flex;
+  width: 100vw;
+}
+
+.activityContainer {
+  background-color: var(--selected-item-main-color);
+  width: 100%;
+}
