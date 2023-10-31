@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import styles from "./OptionItem.module.css";
-
+import { useEffect, useState } from 'react'
+import styles from './OptionItem.module.css'
+import PropTypes from 'prop-types'
 export const OptionItem = ({ optionText, path, children }) => {
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(false)
 
   const getActiveStyle = () => {
-    return isActive ? styles.optionPanel__itemActive : "";
-  };
+    return isActive ? styles.optionPanel__itemActive : ''
+  }
 
   useEffect(() => {
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.pathname
 
     if (currentPath === path) {
-      setActive(true);
+      setActive(true)
     }
-  }, []);
+  }, [])
 
   return (
     <>
@@ -23,5 +23,10 @@ export const OptionItem = ({ optionText, path, children }) => {
         <p>{optionText}</p>
       </div>
     </>
-  );
-};
+  )
+}
+OptionItem.propTypes = {
+  optionText: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
+}
