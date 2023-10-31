@@ -1,4 +1,5 @@
 .optionPanel__item {
+  align-items: center;
   border-radius: 10px;
   display: flex;
   flex-flow: nowrap;
@@ -7,6 +8,7 @@
 }
 
 .optionPanel__item i {
+  display: flex;
   margin-right: 1.5rem;
 }
 
