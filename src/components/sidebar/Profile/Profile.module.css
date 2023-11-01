@@ -5,17 +5,18 @@
   flex-wrap: nowrap;
   flex: 1;
   margin-top: 10px;
+  padding: 1rem 0;
 }
 
 .profile__img {
   background-color: var(--separation-border-color);
   border-radius: 50%;
   flex: 1;
-  height: 64px;
-  width: 64px;
+  height: 2rem;
+  width: 2rem;
 }
 
 .profile__title {
-  flex: 3;
+  flex: 9;
   margin-left: 1rem;
 }

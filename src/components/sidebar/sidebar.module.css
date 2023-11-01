@@ -8,6 +8,7 @@
   height: 100vh;
   padding: 0 1rem;
   width: 17rem;
+  position: fixed;
 }
 
 .configs__container {
