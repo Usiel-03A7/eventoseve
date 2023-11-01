@@ -1,30 +1,33 @@
 import { useEffect, useState } from 'react'
 import styles from './OptionItem.module.css'
 import PropTypes from 'prop-types'
-export const OptionItem = ({ optionText, path, children }) => {
-  const [isActive, setActive] = useState(false)
+import { Link, useLocation } from 'react-router-dom'
 
-  const getActiveStyle = () => {
-    return isActive ? styles.optionPanel__itemActive : ''
+export const OptionItem = ({ optionText, path, children }) => {
+  const [currentStyle, setCurrentStyle] = useState('')
+  const location = useLocation()
+
+  const getCurrentStyle = (currentPath) => {
+    return currentPath === path && styles.optionPanel__itemActive
   }
 
   useEffect(() => {
     const currentPath = window.location.pathname
-
-    if (currentPath === path) {
-      setActive(true)
-    }
-  }, [])
+    setCurrentStyle(getCurrentStyle(currentPath))
+  }, [location])
 
   return (
     <>
-      <div className={`${styles.optionPanel__item} ${getActiveStyle()}`}>
-        <i>{children}</i>
-        <p>{optionText}</p>
-      </div>
+      <Link to={ path }>
+        <div className={`${styles.optionPanel__item} ${currentStyle}`}>
+          <i>{children}</i>
+          <p>{optionText}</p>
+        </div>
+      </Link>
     </>
   )
 }
+
 OptionItem.propTypes = {
   optionText: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,

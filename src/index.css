@@ -8,11 +8,18 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+
   --selected-item-main-color: #85c0ff80;
   --separation-border-color: #999999;
   --cards-border-color: #cdcdcd;
 }
+
 * {
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
