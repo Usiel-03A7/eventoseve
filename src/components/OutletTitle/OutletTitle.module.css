@@ -1,0 +1,9 @@
+.outletTitle__Container {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.outletTitle__Container h1 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+}
