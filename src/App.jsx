@@ -5,6 +5,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import { db } from './firebase/config'
 import { useEffect, useState } from 'react';
 import { addDoc, collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore';
+import Inventary from './components/inventary'
 function Layout() {
   return <div className='container'>
     <Sidebar />
@@ -42,10 +43,24 @@ function App() {
       <Route exact path="/" element={<Layout />} >
         <Route index element={<Scheduler
           events={events}
+          translations={
+            {
+              navigation: {
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+                today: 'Hoy',
+              }
+            }}
           week={{
             startHour: 0,
             endHour: 24
           }}
+          day={{
+            startHour: 0,
+            endHour: 24
+          }}
+
           onConfirm={async (event, action) => {
             console.log('ACTION', action);
             if (action === 'create') {
@@ -71,9 +86,14 @@ function App() {
               type: "input",
               config: { label: "Mesas", required: true, min: 1, max: Infinity, variant: "outlined", decimal: true },
             },
+            {
+              name: "Información ",
+              type: "input",
+              config: { label: "Información", required: true, variant: "outlined" },
+            }
           ]}
         />} />
-        <Route path="inventary" element={<h1>Inventario En proceso</h1>} />
+        <Route path="inventary" element={<Inventary />} />
         <Route path="newpub" element={<h1>Nueva no aplica para beta</h1>} />
       </Route>
 
