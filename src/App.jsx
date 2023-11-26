@@ -50,11 +50,24 @@ function App() {
                 week: 'Semana',
                 day: 'Día',
                 today: 'Hoy',
-              }
+              },
+              form: {
+                addTitle: "Añadir Evento",
+                editTitle: "Editar Evento",
+                confirm: "Confirmar",
+                cancel: "Cancelar",
+              },
+              event: {
+                allDay: "Todo el día",
+                title: "Título",
+                start: "Inicio",
+                end: "Fin",
+                description: "Descripción",
+              },
             }}
           week={{
             startHour: 0,
-            endHour: 24
+            endHour: 24,
           }}
           day={{
             startHour: 0,
