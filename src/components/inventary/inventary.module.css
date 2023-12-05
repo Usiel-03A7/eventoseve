@@ -1,29 +1,33 @@
+/* inventary.module.css */
+
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.containerInventary {
-    display : flex;
-    justify-content: space-evenly ;
-    width: 100%;
-    align-items: center;
-}
-.inventaryLeft {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: 1px solid black;
-    height: 90vh;
-    gap: 1rem;
-    width: 25%;
-}
-.inventaryRight {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    height: 90vh;
-    border: #ff0000 1px solid;
-    width: 25%;
-}
+    background-color: #e6f7ff; /* Azul claro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #b3d1e0; /* Azul más oscuro */
+    border-radius: 5px;
+  }
+  
+  h2 {
+    color: #0066cc; /* Azul más oscuro */
+  }
+  
+  h3 {
+    color: #0066cc; /* Azul más oscuro */
+  }
+  
+  p {
+    color: #333; /* Texto más oscuro */
+  }
+  
