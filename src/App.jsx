@@ -7,9 +7,6 @@ import { useEffect, useState } from 'react';
 import { addDoc, collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore';
 import Inventary from './components/inventary';
 
-const COSTO_POR_SILLA = 5; // Costo por silla (ajusta según tus necesidades)
-const COSTO_POR_MESA = 10; // Costo por mesa (ajusta según tus necesidades)
-
 function Layout() {
   return (
     <div className='container'>

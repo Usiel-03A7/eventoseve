@@ -1,33 +1,48 @@
 /* inventary.module.css */
 
 .container {
-    background-color: #e6f7ff; /* Azul claro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #b3d1e0; /* Azul más oscuro */
-    border-radius: 5px;
-  }
-  
-  h2 {
-    color: #0066cc; /* Azul más oscuro */
-  }
-  
-  h3 {
-    color: #0066cc; /* Azul más oscuro */
-  }
-  
-  p {
-    color: #333; /* Texto más oscuro */
-  }
-  
+  background-color: #e6f7ff; /* Azul claro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px; /* Añadido para dar espacio */
+}
+
+.container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #0066cc; /* Azul más oscuro */
+}
+
+.container input {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #b3d1e0; /* Azul más oscuro */
+  border-radius: 5px;
+}
+
+.container h2 {
+  color: #0066cc; /* Azul más oscuro */
+}
+
+.container h3 {
+  color: #0066cc; /* Azul más oscuro */
+}
+
+.container p {
+  color: #333; /* Texto más oscuro */
+  margin: 5px 0; /* Añadido para mejorar la presentación */
+}
+
+.container button {
+  padding: 10px;
+  background-color: #0066cc; /* Azul más oscuro */
+  color: #fff; /* Texto blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #005bb5; /* Azul más oscuro al pasar el ratón */
+}

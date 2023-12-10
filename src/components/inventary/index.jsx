@@ -1,13 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './inventary.module.css';
-const InventarioComponent = () => {
+import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
+const InventarioComponent = () => {
     const [numMesas, setNumMesas] = useState(0);
     const [numSillas, setNumSillas] = useState(0);
+
+    useEffect(() => {
+        const obtenerInventario = async () => {
+            try {
+                const inventarioSnapshot = await getDocs(collection(db, 'inventario'));
+                if (!inventarioSnapshot.empty) {
+                    const inventarioData = inventarioSnapshot.docs[0].data();
+                    setNumMesas(inventarioData.mesas);
+                    setNumSillas(inventarioData.sillas);
+                }
+            } catch (error) {
+                console.error('Error al obtener el inventario:', error.message);
+            }
+        };
+
+        obtenerInventario();
+    }, []); // Se ejecutará solo una vez al montar el componente
+
+    const guardarInventario = async () => {
+        try {
+            const docRef = await addDoc(collection(db, 'inventario'), {
+                mesas: numMesas,
+                sillas: numSillas,
+            });
+
+            console.log('Documento agregado con ID:', docRef.id);
+        } catch (error) {
+            console.error('Error al agregar el documento:', error.message);
+        }
+    };
+
     return (
         <div className={style.container}>
             <h2>Título del Inventario</h2>
-
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div>
                     <label>Mesas:</label>
@@ -23,6 +55,7 @@ const InventarioComponent = () => {
                 <p>Mesas: {numMesas}</p>
                 <p>Sillas: {numSillas}</p>
             </div>
+            <button onClick={guardarInventario}>Guardar en Inventario</button>
         </div>
     );
 };
