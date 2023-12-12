@@ -3,6 +3,30 @@ import style from './inventary.module.css';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 
+export const mesasInve = async () => {
+    try {
+        const inventarioSnapshot = await getDocs(collection(db, 'inventario'));
+        if (!inventarioSnapshot.empty) {
+            const inventarioData = inventarioSnapshot.docs[0].data();
+            return inventarioData.mesas;
+        }
+    } catch (error) {
+        console.error('Error al obtener el inventario:', error.message);
+    }
+};
+
+export const sillasInve = async () => {
+    try {
+        const inventarioSnapshot = await getDocs(collection(db, 'inventario'));
+        if (!inventarioSnapshot.empty) {
+            const inventarioData = inventarioSnapshot.docs[0].data();
+            return inventarioData.sillas;
+        }
+    } catch (error) {
+        console.error('Error al obtener el inventario:', error.message);
+    }
+};
+
 const InventarioComponent = () => {
     const [numMesas, setNumMesas] = useState(0);
     const [numSillas, setNumSillas] = useState(0);

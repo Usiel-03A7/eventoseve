@@ -5,7 +5,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import { db } from './firebase/config';
 import { useEffect, useState } from 'react';
 import { addDoc, collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore';
-import Inventary from './components/inventary';
+import Inventary, { mesasInve, sillasInve } from './components/inventary';
 
 function Layout() {
   return (
@@ -20,6 +20,14 @@ function Layout() {
 
 function App() {
   const [events, setEvents] = useState([]);
+  let mesasInventario, sillasInventario;
+
+  const obtenerInventario = async () => {
+    mesasInventario = await mesasInve();
+    sillasInventario = await sillasInve();
+    console.log('Mesas en inventario:', mesasInventario );
+    console.log('Sillas en inventario:', sillasInventario);
+  };
 
   const getevents = () => {
     return onSnapshot(collection(db, 'eventos'), (snapshot) => {
@@ -35,6 +43,7 @@ function App() {
   };
 
   useEffect(() => {
+    obtenerInventario();
     const cancel = getevents();
     return cancel;
   }, []);
@@ -115,6 +124,11 @@ function App() {
               name: "Información ",
               type: "input",
               config: { label: "Información", required: true, variant: "outlined" },
+            },
+            {
+              name: "costoMesas",
+              type: "input",
+              config: { label: `${sillasInventario}`, required: true, variant: "outlined", decimal: true },
             }
           ]}
         />} />
